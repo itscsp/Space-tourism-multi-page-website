@@ -95,6 +95,8 @@ picture {
 /* Utility classes          */
 /* ------------------------ */
 
+/* general  */
+
 .flex {
   display: flex;
   gap: var(--gap, 1rem);
@@ -103,6 +105,14 @@ picture {
 .grid {
   display: grid;
   gap: var(--gap, 1rem);
+}
+
+/* the following code exactly like .flow > *:not(:first-child) */
+/* .flow > * + * :- less specificty*/
+
+.flow > *:where(:not(:first-child)){
+    margin-top: var(--flow-space, 1rem);
+    outline: 1px solid red;
 }
 
 .container {
@@ -215,11 +225,4 @@ picture {
     margin-right: .5em;
     font-weight: 700;
     color: hsl(var(--clr-white)/.25);
-}
-
-
-@media (max-width:978px) {
-    .md-flex-col{
-        flex-direction: column;
-    }
 }
