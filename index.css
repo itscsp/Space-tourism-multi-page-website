@@ -113,7 +113,6 @@ picture {
 
 .flow > *:where(:not(:first-child)){
     margin-top: var(--flow-space, 1rem);
-    outline: 1px solid red;
 }
 
 .container {
@@ -259,4 +258,90 @@ picture {
 .large-button:focus::after{
   transform: scale(1.5);
   opacity: 1;
+}
+
+.primary-navigation{
+  --gap:4rem;
+  --underline-gap:2rem;
+  list-style: none;
+  padding: 0;
+  margin:0;
+}
+
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.underline-indicators > * {
+  padding: var(--underline-gap, 1rem) 0;
+  border: 0;
+  cursor: pointer;
+  border-bottom: 0.2rem solid hsl(var(--clr-white) / 0);
+}
+
+.underline-indicators > *:focus,
+.underline-indicators > li:hover,
+.underline-indicators > button:hover{
+    border-color: hsl( var(--clr-white) / 0.5);
+}
+
+.underline-indicators > .active{
+  color: hsl( var(--clr-white) / 1);;
+    border-color: hsl( var(--clr-white) / 1);
+}
+
+.tab-list{
+  --gap:2rem;
+}
+
+.dot-indicators > * {
+  margin-top: 30px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: hsl(var(--clr-white)/.25);
+}
+
+.dot-indicators > button:hover,
+.dot-indicators > button:focus {
+  background-color: hsl( var(--clr-white) / 0.5);
+}
+
+.dot-indicators > [area-selected="true"] {
+  background-color: hsl( var(--clr-white) / 1);
+}
+
+.number-indicators {
+  margin-top: 30px;
+}
+
+.number-indicators > button {
+  display: block;
+  padding: 15px 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid hsl(var(--clr-white)/.25);
+  color: hsl(var(--clr-white)/1);
+  outline: none;
+
+}
+
+.number-indicators > button:hover,
+.number-indicators > button:focus {
+  background-color: transparent;
+  color: var(--clr-white);
+  border-color: var(--clr-white);
+
+}
+
+.number-indicators > [area-selected="true"] {
+  background-color: hsl( var(--clr-white) / 1);
+  color:  hsl(var(--clr-dark));
 }
