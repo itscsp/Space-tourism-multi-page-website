@@ -7,5 +7,7 @@
 			"path": "..\\space-tourism-website-main\\starter-code\\assets"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "my-version"
+	}
 }

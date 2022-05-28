@@ -97,6 +97,8 @@ body {
 
   display: grid;
   grid-template-rows: min-content 1fr;
+
+  overflow-x: hidden; /* Here overflow hidden is used becouse animation couse overflow so we used this property here*/
 }
 
 /* make images easier to work with */
@@ -204,6 +206,20 @@ picture {
   border: 0;
 }
 
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl( var(--clr-white) );
+  color: hsl( var(--clr-dark) );
+  padding: .5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
 /* colors */
 
 .bg-dark {
@@ -330,12 +346,28 @@ picture {
   opacity: 1;
 }
 
+/* primary-header */
+
+.logo{
+  margin:1.5rem clamp(1.5rem, 2vw, 3.5rem);
+}
+
+.primary-header{
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .primary-navigation{
-  --gap:4rem;
+  --gap: clamp(1.5rem, 5vw, 3.5rem);
   --underline-gap:2rem;
   list-style: none;
   padding: 0;
   margin:0;
+
+  background: hsl( var(--clr-dark) / 0.895);
+  /* backdrop-filter: blur(1.5rem);
+  -webkit-backdrop-filter: blur(5px); */
 }
 
 .primary-navigation a {
@@ -346,6 +378,105 @@ picture {
   font-weight: 700;
   margin-right: 0.5rem;
 }
+
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@supports (backdrop-filter: blur(1.5rem)) {
+  .primary-navigation{
+    background: hsl( var(--clr-white) / 0.05);
+    backdrop-filter: blur(1.5rem);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+}
+
+@media (max-width: 35rem){
+  .primary-navigation{
+    --underline-gap:0.5em;
+    position: fixed;
+    inset: 0 0 0 30%;
+    z-index: 1000;
+    list-style: none;
+    padding: min(20rem, 20vh) 2rem;
+    margin:0;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .primary-navigation.underline-indicators > *{
+    border: 0;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 2000;
+    right: 1rem;
+    top: 2rem;
+    background: transparent;
+    background-image: url(./assets/shared/icon-hamburger.svg);
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-image: url(./assets/shared/icon-close.svg);
+  }
+
+  .mobile-nav-toggle:focus-visible {
+    outline: 5px solid white;
+    outline-offset: 5px;
+}
+
+}
+
+@media (min-width: 35rem){
+  .primary-navigation{
+    padding-inline: clamp(2rem, 8vw, 7rem);
+  }
+}
+
+@media (min-width: 35rem) and (max-width: 45em) {
+  .primary-navigation a > span{
+    display: none;
+  }
+}
+
+
+@media (min-width: 45rem) {
+  .primary-header:after {
+    content: '';
+    display: block;
+    position: relative;
+    height: 1px;
+    width: 100%;
+    margin-left: 5rem;
+    margin-right: -2.5rem;
+    background: hsl( var(--clr-white) / .25);
+    order: 1;
+  }
+
+  nav{
+    order: 2;
+  }
+
+  .primary-navigation{
+    margin-block: 2rem;
+  }
+
+
+}
+
 
 .underline-indicators > * {
   padding: var(--underline-gap, 1rem) 0;
@@ -443,3 +574,7 @@ body {
     background-image:url(./assets/home/background-home-desktop.jpg);
   }
 }
+
+/*----------------------------- */
+/* Navigation styles            */
+/*----------------------------- */
