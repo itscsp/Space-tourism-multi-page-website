@@ -512,9 +512,9 @@ picture {
 
 }
 
-.number-indicators > [area-selected="true"] {
-  background-color: hsl( var(--clr-white) / 1);
-  color:  hsl(var(--clr-dark));
+.number-indicators > [aria-selected="true"] {
+  background-color: hsl( var(--clr-white) / 1) !important;
+  color:  hsl(var(--clr-dark)) !important;
 }
 
 
@@ -580,6 +580,23 @@ body {
   }
 }
 
+/* technology */
+
+.technology {
+  background-image:url(./assets/technology/background-technology-mobile.jpg);
+}
+
+@media (min-width:35rem){
+  .technology {
+    background-image:url(./assets/technology/background-technology-tablet.jpg);
+  }
+}
+
+@media (min-width:45rem){
+  .technology {
+    background-image:url(./assets/technology/background-technology-desktop.jpg);
+  }
+}
 
 
 
@@ -651,6 +668,9 @@ body {
 }
 
 
+
+
+
 .grid-container--crew > picture {
   grid-area: image;
   max-width: 60%;
@@ -680,7 +700,44 @@ body {
   font-size: 1.75rem;
 }
 
-picture[hidden]{
+
+.grid-container--technology{
+  grid-template-areas:
+  'title'
+  'image'
+  'tabs'
+  'content';
+}
+
+
+.grid-container.grid-container--technology{
+  padding-inline: 0px;
+}
+
+.display-portrait{
+  display: none;
+}
+
+.grid-container--technology > picture {
+  grid-area: image;
+}
+
+.grid-container--technology  .tab-list{
+  grid-area: tabs;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: end;
+  gap: 10px;
+}
+
+.grid-container--technology  .technology-info{
+  grid-area:content;
+  padding: 1rem;
+}
+
+
+
+*[hidden]{
   visibility: hidden;
 }
 
@@ -703,6 +760,30 @@ picture[hidden]{
     'content'
     'dots'
     'image';
+  }
+
+  .grid-container--technology{
+    grid-template-areas:
+    'title'
+    'image'
+    'tabs'
+    'content';
+  }
+
+  .grid-container--technology  .tab-list{
+    grid-area: tabs;
+    display: grid;
+    grid-template-columns:auto ;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .display-landscape{
+    display: none;
+  }
+
+  .display-portrait{
+    display: block;
   }
 
 }
@@ -766,12 +847,23 @@ picture[hidden]{
 
   }
 
+  .grid-container--technology{
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 3rem) minmax(0, 37rem) minmax(0, 27rem) minmax(1rem, 1fr);
+    grid-template-areas:
+    '. title title title .'
+    '. tabs content image  .';
+  }
+
 
 
   .grid-container--crew > picture{
 
     max-width: 90%;
     align-self: end;
+  }
+
+  .grid-container--technology > picture{
+    max-width: 90%;
   }
 
 

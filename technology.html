@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Our custom css -->
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Frontend Mentor | Space tourism website</title>
+
+    <script src="index.js" defer></script>
+  </head>
+  <body class="technology">
+    <a href="#main" class="skip-to-content">Skip to content</a>
+    <header class="primary-header flex">
+      <div class="">
+        <img
+          src="./assets/shared/logo.svg"
+          alt="space tourism logo"
+          class="logo"
+        />
+      </div>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false"> Menu </span>
+      </button>
+      <nav>
+        <ul
+          id="primary-navigation"
+          data-visible="false"
+          class="primary-navigation underline-indicators flex"
+        >
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="index.html"
+              ><span aria-hidden="true">00</span>Home</a
+            >
+          </li>
+          <li class="">
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="destination.html"
+              ><span aria-hidden="true">01</span>Destination</a
+            >
+          </li>
+          <li>
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="crew.html"
+              ><span aria-hidden="true">02</span>Crew</a
+            >
+          </li>
+          <li class="active">
+            <a
+              class="ff-sans-cond uppercase text-white letter-spacing-2"
+              href="technology.html"
+              ><span aria-hidden="true">03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="grid-container grid-container--technology flow" >
+      <h1 class="numbered-title">
+        <span aria-hidden="true">03</span>Space launch 101
+      </h1>
+
+      <!-- Numbers -->
+      <div
+        class="tab-list number-indicators flow"
+        style="--flow-space: 2rem"
+        role="tablist"
+        aria-label="technology list"
+      >
+        <button
+          aria-selected="true"
+          class="fs-400"
+          role="tab"
+          aria-controls="vehicle-tab"
+          tabindex="0"
+          data-image="vehicle-image"
+        >
+          1 <span class="sr-only">vehicle</span>
+        </button>
+
+        <button
+          aria-selected="false"
+          class="fs-400"
+          role="tab"
+          aria-controls="Spaceport-tab"
+          tabindex="-1"
+          data-image="spaceport-image"
+        >
+          2 <span class="sr-only">spaceport</span>
+        </button>
+
+        <button
+          aria-selected="false"
+          class="fs-400"
+          role="tab"
+          aria-controls="capsule-tab"
+          tabindex="-1"          data-image="capsule-image"
+        >
+          3 <span class="sr-only">capsule </span>
+        </button>
+
+      </div>
+
+      <article class="technology-info flow" id="vehicle-tab" tabindex="0" role="tabpanel">
+        <header class="flow flow-space--small">
+          <p class=" uppercase ff-serif">
+            The terminology...
+          </p>
+          <h2 class="fs-700 ff-serif uppercase">
+            Launch vehicle
+          </h2>
+      </header>
+
+      <p>A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a
+        payload from Earth's surface to space, usually to Earth orbit or beyond. Our
+        WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall,
+        it's quite an awe-inspiring sight on the launch pad!</p>
+
+      </article>
+      <article hidden class="technology-info flow" id="Spaceport-tab" tabindex="-1" role="tabpanel">
+        <header class="flow flow-space--small">
+          <p class=" uppercase ff-serif">
+            The terminology...
+          </p>
+          <h2 class="fs-700 ff-serif uppercase">
+            Spaceport
+          </h2>
+      </header>
+
+      <p>See our planet as you’ve never seen it before. A perfect relaxing trip away to help
+      regain perspective and come back refreshed. While you’re there, take in some history
+      by visiting the Luna 2 and Apollo 11 landing sites.</p>
+
+      </article>
+      <article hidden class="technology-info flow" id="capsule-tab" tabindex="-1" role="tabpanel">
+        <header class="flow flow-space--small">
+          <p class=" uppercase ff-serif">
+            The terminology...
+          </p>
+          <h2 class="fs-700 ff-serif uppercase">
+            Space capsule
+          </h2>
+      </header>
+
+      <p>A space capsule is an often-crewed spacecraft that uses a blunt-body reentry
+        capsule to reenter the Earth's atmosphere without wings. Our capsule is where
+        you'll spend your time during the flight. It includes a space gym, cinema,
+        and plenty of other activities to keep you entertained.</p>
+
+      </article>
+
+
+      <picture  role="imageTag"  id="vehicle-image" >
+
+        <img class="display-landscape" src="assets/technology/image-launch-vehicle-landscape.jpg" alt="the moon">
+        <img class="display-portrait" src="assets/technology/image-launch-vehicle-portrait.jpg" alt="the moon">
+
+      </picture>
+      <picture  hidden role="imageTag"  id="spaceport-image" >
+
+        <img class="display-landscape" src="assets/technology/image-spaceport-landscape.jpg" alt="the moon">
+        <img class="display-portrait" src="assets/technology/image-spaceport-portrait.jpg" alt="the moon">
+
+      </picture>
+      <picture hidden role="imageTag"  id="capsule-image" >
+
+        <img class="display-landscape" src="assets/technology/image-space-capsule-landscape.jpg" alt="the moon">
+        <img class="display-portrait" src="assets/technology/image-space-capsule-portrait.jpg" alt="the moon">
+
+      </picture>
+
+
+    </main>
+  </body>
+</html>
